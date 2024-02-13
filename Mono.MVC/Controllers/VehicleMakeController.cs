@@ -45,7 +45,14 @@ namespace Mono.MVC.Controllers
             return View(await PaginatedList<VehicleMake>.createPaginatedList(vehicles.AsQueryable(), pageNumber ?? 1, pageSize));
         }
 
-        
+        [HttpGet]
+        public async Task<IActionResult> Create()
+        {
+            
+            return View();
+
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> Create(VehicleMakeViewModel vehicleMakeViewModel)

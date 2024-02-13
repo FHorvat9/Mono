@@ -270,3 +270,4 @@ E:\Programiranje\Projekti\Mono\Mono.MVC\obj\Debug\net8.0\refint\Mono.MVC.dll
 E:\Programiranje\Projekti\Mono\Mono.MVC\obj\Debug\net8.0\Mono.MVC.pdb
 E:\Programiranje\Projekti\Mono\Mono.MVC\obj\Debug\net8.0\Mono.MVC.genruntimeconfig.cache
 E:\Programiranje\Projekti\Mono\Mono.MVC\obj\Debug\net8.0\ref\Mono.MVC.dll
+E:\Programiranje\Projekti\Mono\Mono.MVC\obj\Debug\net8.0\Mono.MVC.sourcelink.json

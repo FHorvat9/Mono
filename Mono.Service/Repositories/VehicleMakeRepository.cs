@@ -72,7 +72,7 @@ namespace Mono.Service.Repositories
 
                 default:
 
-                    return _context.VehicleMakes.Where(e => e.Name.Contains(searchString) || e.Abrv.Contains(searchString));
+                    return _context.VehicleMakes.OrderBy(e => e.Name).Where(e => e.Name.Contains(searchString) || e.Abrv.Contains(searchString));
 
             }
         }
@@ -94,7 +94,7 @@ namespace Mono.Service.Repositories
 
                 default:
 
-                    return _context.VehicleMakes;
+                    return _context.VehicleMakes.OrderBy(e => e.Name);
 
             }
         }

@@ -12,3 +12,4 @@ E:\Programiranje\Projekti\Mono\Mono.Service\obj\Debug\net8.0\refint\Mono.Service
 E:\Programiranje\Projekti\Mono\Mono.Service\obj\Debug\net8.0\Mono.Service.pdb
 E:\Programiranje\Projekti\Mono\Mono.Service\obj\Debug\net8.0\Mono.Service.genruntimeconfig.cache
 E:\Programiranje\Projekti\Mono\Mono.Service\obj\Debug\net8.0\ref\Mono.Service.dll
+E:\Programiranje\Projekti\Mono\Mono.Service\obj\Debug\net8.0\Mono.Service.sourcelink.json

@@ -47,7 +47,7 @@ namespace Mono.Service.Repositories
 
                 default:
 
-                    return _context.VehicleModels.Where(e => e.Name.Contains(searchString) || e.Abrv.Contains(searchString)).Include(e => e.vehicleMake);
+                    return _context.VehicleModels.OrderBy(e => e.Name).Where(e => e.Name.Contains(searchString) || e.Abrv.Contains(searchString)).Include(e => e.vehicleMake);
 
             }
         }
@@ -78,7 +78,7 @@ namespace Mono.Service.Repositories
 
                 default:
 
-                    return _context.VehicleModels.Include(e => e.vehicleMake);
+                    return _context.VehicleModels.OrderBy(e=>e.Name).Include(e => e.vehicleMake);
 
             }
         }
@@ -124,7 +124,7 @@ namespace Mono.Service.Repositories
 
             if (vehicleModelChanged != null)
             {
-                oldVehicle.vehicleMake = vehicleModelChanged.vehicleMake;
+                
                 oldVehicle.Abrv = vehicleModelChanged.Abrv;
                 oldVehicle.Name = vehicleModelChanged.Name;
                 oldVehicle.VehicleMakeId = vehicleModelChanged.VehicleMakeId;
