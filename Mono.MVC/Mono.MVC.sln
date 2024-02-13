@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono.MVC", "Mono.MVC.csproj", "{DE672F14-24B9-4133-B8DF-3284D02A7537}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono.Service", "..\Mono.Service\Mono.Service.csproj", "{24F47237-08C4-4E8A-9CFC-E5E99D9052F8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE672F14-24B9-4133-B8DF-3284D02A7537}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE672F14-24B9-4133-B8DF-3284D02A7537}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE672F14-24B9-4133-B8DF-3284D02A7537}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE672F14-24B9-4133-B8DF-3284D02A7537}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24F47237-08C4-4E8A-9CFC-E5E99D9052F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24F47237-08C4-4E8A-9CFC-E5E99D9052F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24F47237-08C4-4E8A-9CFC-E5E99D9052F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24F47237-08C4-4E8A-9CFC-E5E99D9052F8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8CF984A0-0FF9-43E9-B800-F865AAFEF71A}
+	EndGlobalSection
+EndGlobal

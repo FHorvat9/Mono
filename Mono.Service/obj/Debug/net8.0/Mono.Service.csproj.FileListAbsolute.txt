@@ -1,0 +1,14 @@
+E:\Programiranje\Projekti\Mono\Mono.Service\bin\Debug\net8.0\Mono.Service.deps.json
+E:\Programiranje\Projekti\Mono\Mono.Service\bin\Debug\net8.0\Mono.Service.runtimeconfig.json
+E:\Programiranje\Projekti\Mono\Mono.Service\bin\Debug\net8.0\Mono.Service.dll
+E:\Programiranje\Projekti\Mono\Mono.Service\bin\Debug\net8.0\Mono.Service.pdb
+E:\Programiranje\Projekti\Mono\Mono.Service\obj\Debug\net8.0\Mono.Service.csproj.AssemblyReference.cache
+E:\Programiranje\Projekti\Mono\Mono.Service\obj\Debug\net8.0\Mono.Service.GeneratedMSBuildEditorConfig.editorconfig
+E:\Programiranje\Projekti\Mono\Mono.Service\obj\Debug\net8.0\Mono.Service.AssemblyInfoInputs.cache
+E:\Programiranje\Projekti\Mono\Mono.Service\obj\Debug\net8.0\Mono.Service.AssemblyInfo.cs
+E:\Programiranje\Projekti\Mono\Mono.Service\obj\Debug\net8.0\Mono.Service.csproj.CoreCompileInputs.cache
+E:\Programiranje\Projekti\Mono\Mono.Service\obj\Debug\net8.0\Mono.Service.dll
+E:\Programiranje\Projekti\Mono\Mono.Service\obj\Debug\net8.0\refint\Mono.Service.dll
+E:\Programiranje\Projekti\Mono\Mono.Service\obj\Debug\net8.0\Mono.Service.pdb
+E:\Programiranje\Projekti\Mono\Mono.Service\obj\Debug\net8.0\Mono.Service.genruntimeconfig.cache
+E:\Programiranje\Projekti\Mono\Mono.Service\obj\Debug\net8.0\ref\Mono.Service.dll

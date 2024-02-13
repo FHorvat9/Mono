@@ -1,0 +1,36 @@
+﻿@model Mono.MVC.Models.VehicleMakeViewModel;
+<h1>Delete</h1>
+@if (Model is null)
+{
+    <p>
+        No vehicle make was found with this id!
+    </p>
+}
+else
+{
+
+    <form method="post">
+        
+        <div class="mt-3">
+            <label class="form-label">Id</label>
+            <input type="text" class="form-control" asp-for="Id" readonly />
+        </div>
+        <div class="mt-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" asp-for="Name" readonly />
+        </div>
+        <div class="mt-3">
+            <label class="form-label">Abrv</label>
+            <input type="text" class="form-control" asp-for="Abrv" readonly />
+        </div>
+        <div class="mt-3">
+            <h5>Delete this vehicle make? </h5>
+            <button type="submit" class="btn btn-danger">Yes</button>
+          </div>
+       </form>
+       
+        
+       
+    
+    
+} 
