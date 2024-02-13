@@ -2,14 +2,14 @@
 @model PaginatedList<Mono.Service.Models.VehicleModel>
 
 @{
-    ViewData["Title"] = "Vehicle Models";
+    ViewData["Title"] = "Vehicle models";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 
 }
 
 <div class="head">
-    <h1>Vehicle Models </h1>
+    <h1>Vehicle models </h1>
 </div>
 
 <div class="controls">
@@ -29,7 +29,7 @@
                         <a asp-action="Index" asp-route-sortOrder="@ViewData["AbrvSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Abrv</a>
                     </th>
                     <th>
-                        <a asp-action="Index" asp-route-sortOrder="@ViewData["MakeSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Model</a>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["MakeSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Make</a>
                     </th>
                     
                     <form asp-action="Index" method="get">

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mono.Service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+467f4e15460076c25e03f4e3a040edff1c617f3b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eea1d7d6bb587c0d7af8e7e8a50f845f68219c2e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mono.Service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mono.Service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
