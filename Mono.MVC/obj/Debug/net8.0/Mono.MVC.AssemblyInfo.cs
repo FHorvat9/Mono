@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mono.MVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eea1d7d6bb587c0d7af8e7e8a50f845f68219c2e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d8b4e1fb68717fd2bb70fcb7b0a38c41d76918c9")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mono.MVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mono.MVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

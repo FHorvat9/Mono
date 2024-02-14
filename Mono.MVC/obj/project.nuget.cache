@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "VhyRe1AUdWx//z2kUDjNYmyl+2v/NkyNOeGfIX4/eLktNxW/12Pbo8wBjnSHkHvEla3xAqcoEU8hiGb1VA17sg==",
+  "dgSpecHash": "h58RCRwUlEv9ve6MmR94o7UUc3R4kzIRk91/cEh//D2JF4ylKlATHjRsMLhMPA7ZU+d3YHTIblvyNgtAzAcvYQ==",
   "success": true,
   "projectFilePath": "E:\\Programiranje\\Projekti\\Mono\\Mono.MVC\\Mono.MVC.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Feecho\\.nuget\\packages\\autofac\\8.0.0\\autofac.8.0.0.nupkg.sha512",
+    "C:\\Users\\Feecho\\.nuget\\packages\\autofac.extensions.dependencyinjection\\9.0.0\\autofac.extensions.dependencyinjection.9.0.0.nupkg.sha512",
     "C:\\Users\\Feecho\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Feecho\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Feecho\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
@@ -152,7 +154,7 @@
     "C:\\Users\\Feecho\\.nuget\\packages\\system.configuration.configurationmanager\\7.0.0\\system.configuration.configurationmanager.7.0.0.nupkg.sha512",
     "C:\\Users\\Feecho\\.nuget\\packages\\system.data.datasetextensions\\4.5.0\\system.data.datasetextensions.4.5.0.nupkg.sha512",
     "C:\\Users\\Feecho\\.nuget\\packages\\system.data.sqlclient\\4.8.1\\system.data.sqlclient.4.8.1.nupkg.sha512",
-    "C:\\Users\\Feecho\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
+    "C:\\Users\\Feecho\\.nuget\\packages\\system.diagnostics.diagnosticsource\\7.0.2\\system.diagnostics.diagnosticsource.7.0.2.nupkg.sha512",
     "C:\\Users\\Feecho\\.nuget\\packages\\system.diagnostics.eventlog\\7.0.0\\system.diagnostics.eventlog.7.0.0.nupkg.sha512",
     "C:\\Users\\Feecho\\.nuget\\packages\\system.drawing.common\\7.0.0\\system.drawing.common.7.0.0.nupkg.sha512",
     "C:\\Users\\Feecho\\.nuget\\packages\\system.formats.asn1\\5.0.0\\system.formats.asn1.5.0.0.nupkg.sha512",

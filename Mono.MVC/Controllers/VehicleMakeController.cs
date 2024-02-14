@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Mono.MVC.Models;
 using Mono.Service.Models;
+using Mono.Service.Repositories;
 using Mono.Service.Repositories.Interfaces;
 
 namespace Mono.MVC.Controllers
@@ -15,8 +16,8 @@ namespace Mono.MVC.Controllers
 
         public VehicleMakeController(IVehicleMakeRepository _vehicleMakeRepository,IMapper mapping)
         {
-            _MakeRepo = _vehicleMakeRepository;
-            _Mapper = mapping;
+           _MakeRepo = _vehicleMakeRepository;
+           _Mapper = mapping;
         }
 
         
@@ -37,12 +38,12 @@ namespace Mono.MVC.Controllers
                 searchString = currentFilter;
             }
             ViewData["CurrentFilter"] = searchString;
-            var vehicles = searchString.IsNullOrEmpty() ? _MakeRepo.getAllVehicleMakesSorted(sortOrder) : _MakeRepo.getAllVehicleMakesFiltered(sortOrder, searchString);
+            var vehicles =  _MakeRepo.GetAllVehicleMakes(sortOrder, searchString);
             
             int pageSize = 5;
 
             
-            return View(await PaginatedList<VehicleMake>.createPaginatedList(vehicles.AsQueryable(), pageNumber ?? 1, pageSize));
+            return View(await PaginatedList<VehicleMake>.createPaginatedList(vehicles, pageNumber ?? 1, pageSize));
         }
 
         [HttpGet]
@@ -58,7 +59,7 @@ namespace Mono.MVC.Controllers
         public async Task<IActionResult> Create(VehicleMakeViewModel vehicleMakeViewModel)
         {
             var vehicleMake = _Mapper.Map<VehicleMake>(vehicleMakeViewModel);
-            await _MakeRepo.addNew(vehicleMake);
+            await _MakeRepo.AddNewVehicleMakeAsync(vehicleMake);
             return RedirectToAction("Index", "VehicleMake");
 
         }
@@ -67,7 +68,7 @@ namespace Mono.MVC.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            var vehicleMake = await _MakeRepo.getVehicle(id);
+            var vehicleMake = await _MakeRepo.GetVehicleMakeAsync(id);
             var vehicleMakeViewModel = _Mapper.Map<VehicleMakeViewModel>(vehicleMake);
             
 
@@ -80,7 +81,7 @@ namespace Mono.MVC.Controllers
         public async Task<IActionResult> Edit(VehicleMakeViewModel viewMake)
         {
             var vehicleMake = _Mapper.Map<VehicleMake>(viewMake);
-           await _MakeRepo.updateVehicleMake(vehicleMake);
+           await _MakeRepo.UpdateVehicleMakeAsync(vehicleMake);
 
             
 
@@ -92,7 +93,7 @@ namespace Mono.MVC.Controllers
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
-            var vehicleMake = await _MakeRepo.getVehicle(id);
+            var vehicleMake = await _MakeRepo.GetVehicleMakeAsync(id);
             var vehicleMakeViewModel = _Mapper.Map<VehicleMakeViewModel>(vehicleMake);
             if (!vehicleMakeViewModel.VehicleModels.IsNullOrEmpty()) {
                 return null;
@@ -106,7 +107,7 @@ namespace Mono.MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(VehicleMakeViewModel viewMake)
         {
-            await _MakeRepo.delete(viewMake.Id);
+            await _MakeRepo.DeleteVehicleMakeAsync(viewMake.Id);
 
 
 

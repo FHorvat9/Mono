@@ -20,7 +20,14 @@ namespace Mono.Service.Repositories
 
             _context = context;
         }
-        public IEnumerable<VehicleModel> getAllVehicleModelsFiltered(String sortOrder, String searchString)
+        public IQueryable<VehicleModel> GetAllVehicleModels()
+        {
+
+
+            return _context.VehicleModels.Include(e => e.vehicleMake);
+
+        }
+        public IQueryable<VehicleModel> GetAllVehicleModels(String sortOrder, String searchString)
         {
             if (sortOrder == null)
             {
@@ -30,60 +37,35 @@ namespace Mono.Service.Repositories
             switch (sortOrder)
             {
                 case "name_desc":
-                    return _context.VehicleModels.OrderByDescending(e => e.Name).Where(e => e.Name.Contains(searchString) || e.Abrv.Contains(searchString)).Include(e => e.vehicleMake);
-                   
+                    return getAllVehicleModelsFiltered(searchString).OrderByDescending(e => e.Name);
                 case "abrv_desc":
-                    return _context.VehicleModels.OrderByDescending(e => e.Abrv).Where(e => e.Name.Contains(searchString) || e.Abrv.Contains(searchString)).Include(e => e.vehicleMake);
-                   
+                    return getAllVehicleModelsFiltered(searchString).OrderByDescending(e => e.Abrv);
+                case "make_desc":
+                    return getAllVehicleModelsFiltered(searchString).OrderByDescending(e => e.vehicleMake.Name);
                 case "abrv":
-                    return _context.VehicleModels.OrderBy(e => e.Abrv).Where(e => e.Name.Contains(searchString) || e.Abrv.Contains(searchString)).Include(e => e.vehicleMake);
+                    return getAllVehicleModelsFiltered(searchString).OrderBy(e => e.Abrv);
                     
                 case "make":
-                    return _context.VehicleModels.OrderBy(e => e.vehicleMake.Name).Where(e => e.vehicleMake.Name.Contains(searchString)).Include(e => e.vehicleMake);
+                    return getAllVehicleModelsFiltered(searchString).OrderBy(e => e.vehicleMake.Name);
                     
-                case "make_desc":
-                    return _context.VehicleModels.OrderBy(e => e.vehicleMake.Name).Where(e => e.vehicleMake.Name.Contains(searchString)).Include(e => e.vehicleMake);
-                   
+                
 
                 default:
 
-                    return _context.VehicleModels.OrderBy(e => e.Name).Where(e => e.Name.Contains(searchString) || e.Abrv.Contains(searchString)).Include(e => e.vehicleMake);
+                    return getAllVehicleModelsFiltered(searchString).OrderBy(e => e.Name);
 
             }
         }
-        public IEnumerable<VehicleModel> getAllVehicleModelsSorted(String sortOrder)
+        private IQueryable<VehicleModel> getAllVehicleModelsFiltered(String searchString)
         {
-            if (sortOrder == null)
+            if (!searchString.IsNullOrEmpty())
             {
-                sortOrder = "";
+                return _context.VehicleModels.Include(e => e.vehicleMake).Where(e => e.Name.Contains(searchString) || e.Abrv.Contains(searchString));
             }
-
-            switch (sortOrder)
-            {
-                case "name_desc":
-                    return _context.VehicleModels.OrderByDescending(e => e.Name).Include(e => e.vehicleMake);
-                   
-                case "abrv_desc":
-                    return _context.VehicleModels.OrderByDescending(e => e.Abrv).Include(e => e.vehicleMake);
-                    
-                case "abrv":
-                    return _context.VehicleModels.OrderBy(e => e.Abrv).Include(e => e.vehicleMake);
-                   
-                case "make":
-                    return _context.VehicleModels.OrderBy(e => e.vehicleMake.Name).Include(e => e.vehicleMake);
-                   
-                case "make_desc":
-                    return _context.VehicleModels.OrderByDescending(e => e.vehicleMake.Name).Include(e => e.vehicleMake);
-                   
-
-                default:
-
-                    return _context.VehicleModels.OrderBy(e=>e.Name).Include(e => e.vehicleMake);
-
-            }
+            return _context.VehicleModels.Include(e => e.vehicleMake);
         }
 
-        public async Task<VehicleModel> AddNew(VehicleModel vehicle)
+        public async Task<VehicleModel> AddNewVehicleModelAsync(VehicleModel vehicle)
         {
             _context.Add(vehicle);
             await _context.SaveChangesAsync();
@@ -91,7 +73,7 @@ namespace Mono.Service.Repositories
             return vehicle;
         }
 
-        public async Task<VehicleModel> Delete(int id)
+        public async Task<VehicleModel> DeleteVehicleModelAsync(int id)
         {
 
             _context.VehicleModels.Remove(await _context.VehicleModels.FindAsync(id));
@@ -102,15 +84,9 @@ namespace Mono.Service.Repositories
             return null;
         }
 
-        public IEnumerable<VehicleModel> GetAllVehicleModels()
-        {
+       
 
-
-            return _context.VehicleModels.Include(e => e.vehicleMake);
-
-        }
-
-        public async Task<VehicleModel> GetModel(int id)
+        public async Task<VehicleModel> GetVehicleModelAsync(int id)
         {
 
 
@@ -118,9 +94,9 @@ namespace Mono.Service.Repositories
 
         }
 
-        public async Task<VehicleModel> UpdateVehicleModel(VehicleModel vehicleModelChanged)
+        public async Task<VehicleModel> UpdateVehicleModelAsync(VehicleModel vehicleModelChanged)
         {
-            var oldVehicle = await GetModel(vehicleModelChanged.Id);
+            var oldVehicle = await GetVehicleModelAsync(vehicleModelChanged.Id);
 
             if (vehicleModelChanged != null)
             {

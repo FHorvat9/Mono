@@ -40,17 +40,17 @@ namespace Mono.MVC.Controllers
             }
             ViewData["CurrentFilter"] = searchString;
 
-            var vehicles = searchString.IsNullOrEmpty() ? _ModelRepo.getAllVehicleModelsSorted(sortOrder) : _ModelRepo.getAllVehicleModelsFiltered(sortOrder, searchString);
+            var vehicles = _ModelRepo.GetAllVehicleModels(sortOrder, searchString);
             int pageSize = 5;
 
 
-            return View(await PaginatedList<VehicleModel>.createPaginatedList(vehicles.AsQueryable(), pageNumber ?? 1, pageSize));
+            return View(await PaginatedList<VehicleModel>.createPaginatedList(vehicles ,pageNumber ?? 1, pageSize));
         }
 
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            SelectList makeList =  new SelectList( _MakeRepo.getAllVehicleMakes(),"Id","Name");
+            SelectList makeList =  new SelectList( _MakeRepo.GetAllVehicleMakes(),"Id","Name");
             ViewBag.makeList = makeList;
             return View();
 
@@ -60,7 +60,7 @@ namespace Mono.MVC.Controllers
         public async Task<IActionResult> Create(VehicleModelViewModel vehicleModelViewModel)
         {
             var vehicleModel = _Mapper.Map<VehicleModel>(vehicleModelViewModel);          
-            await _ModelRepo.AddNew(vehicleModel);
+            await _ModelRepo.AddNewVehicleModelAsync(vehicleModel);
             return RedirectToAction("Index", "VehicleModel");
 
            
@@ -69,7 +69,7 @@ namespace Mono.MVC.Controllers
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
-            var vehicleModel = await _ModelRepo.GetModel(id);
+            var vehicleModel = await _ModelRepo.GetVehicleModelAsync(id);
             var vehicleModelViewModel = _Mapper.Map<VehicleModelViewModel>(vehicleModel);
 
 
@@ -81,7 +81,7 @@ namespace Mono.MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(VehicleModelViewModel viewModel)
         {
-            await _ModelRepo.Delete(viewModel.Id);
+            await _ModelRepo.DeleteVehicleModelAsync(viewModel.Id);
 
 
 
@@ -92,8 +92,8 @@ namespace Mono.MVC.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            var vehicleModel = await _ModelRepo.GetModel(id);
-            SelectList makeList = new SelectList(_MakeRepo.getAllVehicleMakes(), "Id", "Name");
+            var vehicleModel = await _ModelRepo.GetVehicleModelAsync(id);
+            SelectList makeList = new SelectList(_MakeRepo.GetAllVehicleMakes(), "Id", "Name");
             ViewBag.makeList = makeList;
             var vehicleModelViewModel = _Mapper.Map<VehicleModelViewModel>(vehicleModel);
             return View(vehicleModelViewModel);
@@ -104,7 +104,7 @@ namespace Mono.MVC.Controllers
         public async Task<IActionResult> Edit(VehicleModelViewModel vehicleModelViewModel)
         {
             var vehicleModel = _Mapper.Map<VehicleModel>(vehicleModelViewModel);
-            await _ModelRepo.UpdateVehicleModel(vehicleModel);
+            await _ModelRepo.UpdateVehicleModelAsync(vehicleModel);
 
             return RedirectToAction("index", "VehicleModel");
 

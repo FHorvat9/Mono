@@ -1,18 +1,27 @@
 using Mono.Service.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Data.Entity;
-using Mono.Service.Repositories.Interfaces;
-using Mono.Service.Repositories;
 using Mono.MVC.Models.Automapper;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using Mono.MVC.Models.Config;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<IVehicleMakeRepository, VehicleMakeRepository>();
-builder.Services.AddScoped<IVehicleModelRepository, VehicleModelRepository>();
+
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+
+
+builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
+{
+   builder.RegisterModule(new AutoFacConfig());
+   
+});
 builder.Services.AddAutoMapper(typeof(AutoMappingProfiles).Assembly);
 builder.Services.AddDbContext<VehicleDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Connection"), b => b.MigrationsAssembly("Mono.MVC")));
+
+
 var app = builder.Build();
 
 

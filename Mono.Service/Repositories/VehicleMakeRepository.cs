@@ -24,7 +24,7 @@ namespace Mono.Service.Repositories
             _context = context;
         }
 
-        public async Task<VehicleMake> addNew(VehicleMake vehicle)
+        public async Task<VehicleMake> AddNewVehicleMakeAsync(VehicleMake vehicle)
         {
             _context.Add(vehicle);
             await _context.SaveChangesAsync();
@@ -32,7 +32,7 @@ namespace Mono.Service.Repositories
             return vehicle;
         }
 
-        public async Task<VehicleMake> delete(int id)
+        public async Task<VehicleMake> DeleteVehicleMakeAsync(int id)
         {
             VehicleMake vehicle = await _context.VehicleMakes.FindAsync(id);
             if (vehicle.VehicleModels.IsNullOrEmpty())
@@ -46,12 +46,23 @@ namespace Mono.Service.Repositories
             return vehicle;
         }
 
-        public IEnumerable<VehicleMake> getAllVehicleMakes()
+        public IQueryable<VehicleMake> GetAllVehicleMakes()
         {
             return _context.VehicleMakes;
+       }
+
+        private IQueryable<VehicleMake> GetAllVehicleMakesFiltered(String searchString)
+        {
+            if (!searchString.IsNullOrEmpty())
+            {
+                return  _context.VehicleMakes.Where(e => e.Name.Contains(searchString) || e.Abrv.Contains(searchString));
+            }
+            return _context.VehicleMakes;
+
+
         }
 
-        public IEnumerable<VehicleMake> getAllVehicleMakesFiltered(String sortOrder, String searchString)
+        public IQueryable<VehicleMake> GetAllVehicleMakes(String sortOrder, String searchString)
         {
             if (sortOrder == null)
             {
@@ -61,40 +72,16 @@ namespace Mono.Service.Repositories
             switch (sortOrder)
             {
                 case "name_desc":
-                    return _context.VehicleMakes.OrderByDescending(e => e.Name).Where(e => e.Name.Contains(searchString) || e.Abrv.Contains(searchString));
+                    return GetAllVehicleMakesFiltered(searchString).OrderByDescending(e => e.Name);
 
                 case "abrv_desc":
-                    return _context.VehicleMakes.OrderByDescending(e => e.Abrv).Where(e => e.Name.Contains(searchString) || e.Abrv.Contains(searchString));
+                    return GetAllVehicleMakesFiltered(searchString).OrderByDescending(e => e.Abrv);
 
                 case "abrv":
-                    return _context.VehicleMakes.OrderBy(e => e.Abrv).Where(e => e.Name.Contains(searchString) || e.Abrv.Contains(searchString));
-
-
+                    return GetAllVehicleMakesFiltered(searchString).OrderBy(e => e.Abrv);
                 default:
 
-                    return _context.VehicleMakes.OrderBy(e => e.Name).Where(e => e.Name.Contains(searchString) || e.Abrv.Contains(searchString));
-
-            }
-        }
-        public IEnumerable<VehicleMake> getAllVehicleMakesSorted(String sortOrder)
-        {
-
-
-            switch (sortOrder)
-            {
-                case "name_desc":
-                    return _context.VehicleMakes.OrderByDescending(e => e.Name);
-
-                case "abrv_desc":
-                    return _context.VehicleMakes.OrderByDescending(e => e.Abrv);
-
-                case "abrv":
-                    return _context.VehicleMakes.OrderBy(e => e.Abrv);
-
-
-                default:
-
-                    return _context.VehicleMakes.OrderBy(e => e.Name);
+                    return GetAllVehicleMakesFiltered(searchString).OrderBy(e => e.Name);
 
             }
         }
@@ -102,14 +89,14 @@ namespace Mono.Service.Repositories
 
 
 
-        public async Task<VehicleMake> getVehicle(int id)
+        public async Task<VehicleMake> GetVehicleMakeAsync(int id)
         {
             return await _context.VehicleMakes.FindAsync(id);
         }
 
-        public async Task<VehicleMake> updateVehicleMake(VehicleMake vehicleMakeChanges)
+        public async Task<VehicleMake> UpdateVehicleMakeAsync(VehicleMake vehicleMakeChanges)
         {
-            var oldVehicle = await getVehicle(vehicleMakeChanges.Id);
+            var oldVehicle = await GetVehicleMakeAsync(vehicleMakeChanges.Id);
 
 
             if (oldVehicle != null)

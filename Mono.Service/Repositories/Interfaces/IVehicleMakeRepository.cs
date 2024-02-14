@@ -9,15 +9,12 @@ namespace Mono.Service.Repositories.Interfaces
 {
     public interface IVehicleMakeRepository
     {
-        
-        IEnumerable<VehicleMake> getAllVehicleMakes();
-        IEnumerable<VehicleMake> getAllVehicleMakesFiltered(String sortOrder,String searchString);
-        IEnumerable<VehicleMake> getAllVehicleMakesSorted(String sortOrder);
 
-        
-        Task<VehicleMake> getVehicle(int id);
-        Task<VehicleMake> updateVehicleMake(VehicleMake vehicleMakeChanges);
-        Task<VehicleMake> addNew(VehicleMake vehicle);
-        Task<VehicleMake> delete(int id);
+        IQueryable<VehicleMake> GetAllVehicleMakes();
+        IQueryable<VehicleMake> GetAllVehicleMakes(String sortOrder, string searchString);
+        Task<VehicleMake> GetVehicleMakeAsync(int id);
+        Task<VehicleMake> UpdateVehicleMakeAsync(VehicleMake vehicleMakeChanges);
+        Task<VehicleMake> AddNewVehicleMakeAsync(VehicleMake vehicle);
+        Task<VehicleMake> DeleteVehicleMakeAsync(int id);
     }
 }

@@ -9,12 +9,13 @@ namespace Mono.Service.Repositories.Interfaces
 {
     public interface IVehicleModelRepository
     {
-        IEnumerable<VehicleModel> GetAllVehicleModels();
-        Task<VehicleModel> GetModel(int id);
-        Task<VehicleModel> UpdateVehicleModel(VehicleModel vehicleModelChanged);
-        Task<VehicleModel> AddNew(VehicleModel vehicle);
-        Task<VehicleModel> Delete(int id);
-        IEnumerable<VehicleModel> getAllVehicleModelsFiltered(String sortOrder, String searchString);
-        IEnumerable<VehicleModel> getAllVehicleModelsSorted(String sortOrder);
+        IQueryable<VehicleModel> GetAllVehicleModels();
+        IQueryable<VehicleModel> GetAllVehicleModels(String sortOrder, String searchString);
+        Task<VehicleModel> GetVehicleModelAsync(int id);
+        Task<VehicleModel> UpdateVehicleModelAsync(VehicleModel vehicleModelChanged);
+        Task<VehicleModel> AddNewVehicleModelAsync(VehicleModel vehicle);
+        Task<VehicleModel> DeleteVehicleModelAsync(int id);
+       
+        
     }
 }

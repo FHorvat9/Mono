@@ -271,3 +271,5 @@ E:\Programiranje\Projekti\Mono\Mono.MVC\obj\Debug\net8.0\Mono.MVC.pdb
 E:\Programiranje\Projekti\Mono\Mono.MVC\obj\Debug\net8.0\Mono.MVC.genruntimeconfig.cache
 E:\Programiranje\Projekti\Mono\Mono.MVC\obj\Debug\net8.0\ref\Mono.MVC.dll
 E:\Programiranje\Projekti\Mono\Mono.MVC\obj\Debug\net8.0\Mono.MVC.sourcelink.json
+E:\Programiranje\Projekti\Mono\Mono.MVC\bin\Debug\net8.0\Autofac.dll
+E:\Programiranje\Projekti\Mono\Mono.MVC\bin\Debug\net8.0\Autofac.Extensions.DependencyInjection.dll

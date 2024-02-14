@@ -13,11 +13,7 @@ namespace Mono.MVC.Models.Automapper
 
             CreateMap<VehicleModelViewModel, VehicleModel>().ReverseMap();
 
-            //CreateMap<VehicleModel, VehicleModelViewModel>()
-            //.ForMember(d => d.Id , d => d.MapFrom(x => x.Id))
-            //.ForMember(d => d.Name, d => d.MapFrom(x => x.Name))
-            //.ForMember(d => d.Abrv, d => d.MapFrom(x => x.Abrv))
-            //.ForMember(d => d.VehicleMakeId, d => d.MapFrom(x => x.vehicleMake.Id));
+           
         }
     }
 }
